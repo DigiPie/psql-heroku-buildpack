@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# bin/detect <build-dir>
+
+echo "psql-heroku-buildpack"
+exit 0

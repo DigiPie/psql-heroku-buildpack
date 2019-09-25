@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+
+BUILD_DIR=${1:-}
+CACHE_DIR=${2:-}
+ENV_DIR=${3:-}
+
+if ! [ -f $ENV_DIR/DATABASE_URL ]; then
+	echo "DATABASE_URL is undefined"
+	exit 1
+fi
+
+if ! [ -f $ENV_DIR/SETUP_SQL ]; then
+	echo "SETUP_SQL is undefined"
+	exit 2
+fi
+
+if ! command -v psql > /dev/null; then 
+	echo "PostgreSQL is not installed"
+	exit 3
+fi
+
+echo "-----> Running $SETUP_SQL script"
+DATABASE_URL=`cat $ENV_DIR/DATABASE_URL`
+SETUP_SQL=`cat $ENV_DIR/SETUP_SQL`
+psql --command="\i $BUILD_DIR/$SETUP_SQL" $DATABASE_URL
+echo "-----> psql-heroku-buildpack compiled successfully"
+exit 0

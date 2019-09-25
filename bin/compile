@@ -22,7 +22,7 @@ fi
 
 DATABASE_URL=`cat $ENV_DIR/DATABASE_URL`
 SETUP_SQL=`cat $ENV_DIR/SETUP_SQL`
-echo "-----> Running $SETUP_SQL script"
+echo "       Running $SETUP_SQL script"
 psql --command="\i $BUILD_DIR/$SETUP_SQL" --quiet $DATABASE_URL --q
-echo "-----> psql-heroku-buildpack compiled successfully"
+echo "       psql-heroku-buildpack compiled successfully"
 exit 0

@@ -20,9 +20,9 @@ if ! command -v psql > /dev/null; then
 	exit 3
 fi
 
-echo "-----> Running $SETUP_SQL script"
 DATABASE_URL=`cat $ENV_DIR/DATABASE_URL`
 SETUP_SQL=`cat $ENV_DIR/SETUP_SQL`
+echo "-----> Running $SETUP_SQL script"
 psql --command="\i $BUILD_DIR/$SETUP_SQL" $DATABASE_URL
 echo "-----> psql-heroku-buildpack compiled successfully"
 exit 0

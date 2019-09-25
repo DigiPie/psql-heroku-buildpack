@@ -14,10 +14,10 @@ You are developing a NodeJS-PostgreSQL application on Github with automatic depl
 - `DATABASE_URL` : postgres://[username]:[password]@[host address]:[port]/[database name]
 - `SETUP_SQL` : [filename].sql
 
-**Example:**
+#### Example
 
 - `DATABASE_URL` : postgres://johntan:hunter21@ec4-420.compute-1.freedatabasesforyou.com:5432/studentDB
 - `SETUP_SQL` : setup.sql
 
-### More info
+#### More info
 The `DATABASE_URL` for your **PostgreSQL database add-on** can be accessed at the **Settings > View Credentials...** section of your add-on administration page. [Find out more here](https://devcenter.heroku.com/articles/heroku-postgresql-credentials).
